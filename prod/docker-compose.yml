@@ -66,7 +66,7 @@ services:
       - eazybank
 
   configserver:
-    image: "yascodej/configserver:s7"
+    image: "yascodej/configserver:latest"
     container_name: configserver-ms
     ports:
       - "8071:8071"
@@ -91,7 +91,7 @@ services:
       SPRING_RABBITMQ_PASSWORD: "guest"
 
   accounts:
-    image: "yascodej/accounts:s7"
+    image: "yascodej/accounts:latest"
     container_name: accounts-ms
     ports:
       - "8888:8080"
@@ -116,7 +116,7 @@ services:
       - eazybank
 
   loans:
-    image: "yascodej/loans:s7"
+    image: "yascodej/loans:latest"
     container_name: loans-ms
     ports:
       - "8090:8090"
@@ -141,7 +141,7 @@ services:
       - eazybank
 
   cards:
-    image: "yascodej/cards:s7"
+    image: "yascodej/cards:latest"
     container_name: cards-ms
     ports:
       - "9000:9000"
