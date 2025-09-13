@@ -123,6 +123,8 @@ services:
     depends_on:
       configserver:
         condition: service_healthy
+      eurekaserver:
+        condition: service_healthy
       accountsdb:
         condition: service_healthy
     environment:
@@ -149,6 +151,8 @@ services:
     depends_on:
       configserver:
         condition: service_healthy
+      eurekaserver:
+        condition: service_healthy
       loansdb:
         condition: service_healthy
     environment:
@@ -174,6 +178,8 @@ services:
       - "9000:8080"
     depends_on:
       configserver:
+        condition: service_healthy
+      eurekaserver:
         condition: service_healthy
       cardsdb:
         condition: service_healthy

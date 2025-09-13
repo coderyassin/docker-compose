@@ -71,6 +71,8 @@ services:
     depends_on:
       configserver:
         condition: service_healthy
+      eurekaserver:
+        condition: service_healthy
     environment:
       SPRING_APPLICATION_NAME: "accounts"
       SPRING_PROFILES_ACTIVE: default
@@ -92,6 +94,8 @@ services:
     depends_on:
       configserver:
         condition: service_healthy
+      eurekaserver:
+        condition: service_healthy
     environment:
       SPRING_APPLICATION_NAME: "loans"
       SPRING_PROFILES_ACTIVE: default
@@ -112,6 +116,8 @@ services:
       - "9000:9000"
     depends_on:
       configserver:
+        condition: service_healthy
+      eurekaserver:
         condition: service_healthy
     environment:
       SPRING_APPLICATION_NAME: "cards"
