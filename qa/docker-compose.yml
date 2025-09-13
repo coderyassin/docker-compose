@@ -53,9 +53,6 @@ services:
       timeout: 5s
       retries: 10
       start_period: 10s
-    extends:
-      file: common-config.yml
-      service: microservice-configserver-config
     environment:
       SPRING_APPLICATION_NAME: "eurekaserver"
       SPRING_PROFILES_ACTIVE: qa
