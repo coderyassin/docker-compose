@@ -99,7 +99,7 @@ services:
       configserver:
         condition: service_healthy
     healthcheck:
-      test: "curl --fail --silent localhost:8070/actuator/health/readiness | grep UP || exit 1"
+      test: "curl --fail --silent http://${SPRING_SECURITY_USER_NAME}:${SPRING_SECURITY_USER_PASSWORD}@localhost:8070/actuator/health/readiness | grep UP || exit 1"
       interval: 10s
       timeout: 5s
       retries: 10
@@ -108,6 +108,8 @@ services:
       SPRING_APPLICATION_NAME: "eurekaserver"
       SPRING_PROFILES_ACTIVE: prod
       SPRING_CONFIG_IMPORT: configserver:http://configserver:8071/
+      SPRING_SECURITY_USER_NAME: admin
+      SPRING_SECURITY_USER_PASSWORD: password
     deploy:
       resources:
         limits:
