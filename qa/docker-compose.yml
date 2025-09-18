@@ -135,7 +135,7 @@ services:
     networks:
       - eazybank
 
-gatewayserver:
+  gatewayserver:
     image: "yascodej/gatewayserver:latest"
     container_name: gatewayserver-ms
     ports:
