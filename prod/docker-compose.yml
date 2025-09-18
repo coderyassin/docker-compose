@@ -196,6 +196,29 @@ services:
     networks:
       - eazybank
 
+gatewayserver:
+    image: "yascodej/gatewayserver:latest"
+    container_name: gatewayserver-ms
+    ports:
+      - "8072:8072"
+    depends_on:
+      accounts:
+        condition: service_healthy
+      loans:
+        condition: service_healthy
+      cards:
+        condition: service_healthy
+    environment:
+      SPRING_APPLICATION_NAME: "gatewayserver"
+      SPRING_PROFILES_ACTIVE: prod
+      SPRING_CONFIG_IMPORT: configserver:http://configserver:8071/
+    deploy:
+      resources:
+        limits:
+          memory: 700m
+    networks:
+      - eazybank  
+
 networks:
   eazybank:
     driver: "bridge"
